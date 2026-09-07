@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Teacher AI Search (No-JS)</title>
+  <style>
+    :root{--bg:#fff;--muted:#555;--accent:#4285F4;--red:#EA4335}
+    *{box-sizing:border-box}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#111;margin:0;padding:48px 16px;display:flex;align-items:flex-start;justify-content:center;min-height:100vh}
+    .shell{width:100%;max-width:980px}
+
+    /* Hidden radio inputs for CSS-only paging */
+    .tabs{display:none}
+    .page{display:none;padding:28px;border-radius:10px;animation:fade 600ms ease both;background:transparent}
+    .page[aria-hidden="false"]{display:block}
+
+    .google{font-size:56px;font-weight:700;text-align:center;margin-top:8px}
+    .blue{color:#4285F4}.red{color:#EA4335}.yellow{color:#FBBC05}.green{color:#34A853}
+
+    .searchbar{display:flex;gap:12px;align-items:center;justify-content:center;margin:28px 0}
+    .searchbar input[type="search"]{width:70%;max-width:720px;padding:14px 18px;border-radius:30px;border:1px solid #ddd;font-size:18px}
+    .btn{display:inline-block;padding:12px 26px;border-radius:24px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
+    .btn:focus{outline:3px solid #b3d4ff;outline-offset:2px}
+
+    .answer{margin-top:40px;font-size:44px;font-weight:700;color:var(--red);text-align:center}
+    .info{margin-top:18px;font-size:18px;color:var(--muted);text-align:center}
+    .heart{font-size:64px;color:transparent;-webkit-text-stroke:2px var(--red);text-align:center;margin-top:18px}
+
+    .story{max-width:780px;margin:22px auto;font-size:20px;line-height:1.8}
+    .name{color:var(--accent);font-size:34px;font-weight:700;text-align:center}
+    .signature{text-align:right;margin-top:28px;margin-right:8%}
+
+    .nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+    .nav label{cursor:pointer}
+
+    @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+    /* Show pages based on which radio is checked */
+    #tab1:checked ~ .pages #page1{display:block}
+    #tab2:checked ~ .pages #page2{display:block}
+    #tab3:checked ~ .pages #page3{display:block}
+    #tab4:checked ~ .pages #page4{display:block}
+    #tab5:checked ~ .pages #page5{display:block}
+    #tab6:checked ~ .pages #page6{display:block}
+    #tab7:checked ~ .pages #page7{display:block}
+    #tab8:checked ~ .pages #page8{display:block}
+
+    /* reduced motion */
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+
+    /* Responsive */
+    @media (max-width:520px){.google{font-size:42px}.answer{font-size:28px}.searchbar input[type="search"]{font-size:16px}}
+  </style>
+</head>
+<body>
+  <div class="shell" role="main">
+
+    <!-- CSS-only tabs (radio inputs) -->
+    <div class="tabs" aria-hidden="true">
+      <input type="radio" name="page" id="tab1" class="tab" checked>
+      <input type="radio" name="page" id="tab2" class="tab">
+      <input type="radio" name="page" id="tab3" class="tab">
+      <input type="radio" name="page" id="tab4" class="tab">
+      <input type="radio" name="page" id="tab5" class="tab">
+      <input type="radio" name="page" id="tab6" class="tab">
+      <input type="radio" name="page" id="tab7" class="tab">
+      <input type="radio" name="page" id="tab8" class="tab">
+    </div>
+
+    <!-- Page 1 -->
+    <section id="page1" class="page" aria-hidden="false">
+      <div class="google" aria-hidden="true">
+        <span class="blue">G</span><span class="red">o</span><span class="yellow">o</span><span class="blue">g</span><span class="green">l</span><span class="red">e</span>
+      </div>
+
+      <div class="searchbar">
+        <label for="query" class="visually-hidden">Search</label>
+        <input id="query" name="q" type="search" placeholder="🔍 Who's the best teacher?" aria-label="Search question">
+        <label for="tab2" class="btn" role="button" tabindex="0">AI Search</label>
+      </div>
+
+      <p class="info" style="text-align:center;">This version works without JavaScript. Use the "AI Search" button to step through the staged results.</p>
+
+      <div class="nav" aria-hidden="true">
+        <label for="tab2" class="btn">Start</label>
+      </div>
+    </section>
+
+    <!-- Pages container -->
+    <div class="pages">
+
+      <section id="page2" class="page" aria-hidden="true">
+        <div class="answer">Mrs. Narjis...</div>
+        <div class="heart" aria-hidden="true">♡</div>
+        <div class="info">AI confidence: 98%</div>
+        <div class="nav">
+          <label for="tab3" class="btn">Discover why</label>
+        </div>
+      </section>
+
+      <section id="page3" class="page" aria-hidden="true">
+        <div class="answer">Searching deeper...</div>
+        <div class="info">Reviewing your science experience...</div>
+        <div class="info">Analyzing lessons and memories...</div>
+        <div class="nav">
+          <label for="tab4" class="btn">Continue</label>
+        </div>
+      </section>
+
+      <section id="page4" class="page" aria-hidden="true">
+        <div class="info">AI analysis:</div>
+        <div class="answer" style="font-size:34px;">Mrs. Narjis taught you well...</div>
+        <div class="info">She helped build your understanding of science.</div>
+        <div class="nav"><label for="tab5" class="btn">Next</label></div>
+      </section>
+
+      <section id="page5" class="page" aria-hidden="true">
+        <div class="info">AI reconsidering answer...</div>
+        <div class="answer" style="font-size:34px;">But this answer is incomplete...</div>
+        <div class="info">A good teacher helps you understand a subject...</div>
+        <div class="nav"><label for="tab6" class="btn">Keep going</label></div>
+      </section>
+
+      <section id="page6" class="page" aria-hidden="true">
+        <div class="answer" style="font-size:34px;">A great teacher changes the way you see it.</div>
+        <div class="info">Searching for the teacher who changed your perspective...</div>
+        <div class="nav"><label for="tab7" class="btn">Reveal</label></div>
+      </section>
+
+      <section id="page7" class="page" aria-hidden="true">
+        <div class="info">Final result found:</div>
+        <div class="answer">Mrs. Robina</div>
+        <div class="heart">♡</div>
+        <div class="nav"><label for="tab8" class="btn">Discover why</label></div>
+      </section>
+
+      <section id="page8" class="page" aria-hidden="true">
+        <h2 style="text-align:center;margin-top:0">AI Search Result Found:</h2>
+        <div class="name">Mrs. Robina</div>
+
+        <article class="story" aria-label="Personal story">
+          <p>Before your lessons, science was a subject I enjoyed — but Physics and Chemistry were the parts that caught my attention the most.</p>
+          <p>When science was divided into three branches, Physics became my favourite.</p>
+          <p>But then came the person who changed the way I saw Biology...</p>
+          <p>A teacher who didn't just explain concepts, but brought them to life.</p>
+          <p>Through your passion, patience, and dedication, Biology became the subject I now look forward to the most.</p>
+          <p>Thank you, Mrs. Robina, for changing my perspective and making Biology my favourite subject.</p>
+        </article>
+
+        <div class="signature">— Youssef Ahmed</div>
+
+        <div style="text-align:center;margin-top:22px">
+          <label for="tab1" class="btn">Restart</label>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
+  <!-- Accessibility helper: visually-hidden class -->
+  <style>
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+  </style>
+</body>
+</html>
